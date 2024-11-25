@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Signuppage.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Signuppage() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ function Signuppage() {
     account: ''
   });
 
+  const navigate = useNavigate(); // navigate 함수 생성
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -26,6 +29,7 @@ function Signuppage() {
       const response = await axios.post('/process/signuppage', formData);
       if (response.data.success) {
         alert('회원가입 성공');
+        navigate('/login');
       } else {
         alert(response.data.message);
       }

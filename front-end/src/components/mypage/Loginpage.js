@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Loginpage.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Loginpage() {
   const [formData, setFormData] = useState({
@@ -13,12 +14,15 @@ function Loginpage() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const navigate = useNavigate(); // navigate 함수 생성
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('/process/loginpage', formData);
       if (response.data.success) {
         alert('로그인 성공');
+        navigate('/')
       } else {
         alert(response.data.message);
       }
