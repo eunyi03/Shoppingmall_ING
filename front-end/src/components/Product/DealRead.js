@@ -66,7 +66,13 @@ function DealRead() {
   };
 
   const handleAddToCart = () => {
-    alert("장바구니에 추가되었습니다."); // 장바구니 로직 추가 가능
+    if (item.Status === "거래완료") {
+      alert("이미 거래가 완료된 상품입니다.");
+      return;
+    }
+    // 장바구니에 추가되었습니다 메시지 후 마이페이지로 이동
+    alert("장바구니에 추가되었습니다.");
+    navigate("/mypage");
   };
 
   return (
@@ -120,17 +126,24 @@ function DealRead() {
           {/* 하단 버튼 */}
           <div className="bottom-buttons">
             {item.Status === "거래완료" ? (
-              <button className="disabled-button" disabled>
-                이미 거래가 완료된 상품입니다.
-              </button>
+              <>
+                <button className="disabled-button" disabled>
+                  이미 거래가 완료된 상품입니다.
+                </button>
+                <button className="disabled-button" disabled>
+                  장바구니
+                </button>
+              </>
             ) : (
-              <button onClick={handlePurchase} className="purchase-button">
-                거래하기
-              </button>
+              <>
+                <button onClick={handlePurchase} className="purchase-button">
+                  거래하기
+                </button>
+                <button onClick={handleAddToCart} className="cart-button">
+                  장바구니
+                </button>
+              </>
             )}
-            <button onClick={handleAddToCart} className="cart-button">
-              장바구니
-            </button>
           </div>
         </>
       ) : (
