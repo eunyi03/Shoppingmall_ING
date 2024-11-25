@@ -118,7 +118,42 @@ router.get("/transactions", checkLogin, (req, res) => {
 
 
 
-// 장바구니 조회 API
+// // 장바구니 조회 API
+// router.get("/cart", checkLogin, (req, res) => {
+//   const userId = req.session.user.CustomerID;
+
+//   pool.query(
+//     `
+//     SELECT 
+//       sc.ProductID, 
+//       p.ProductName, 
+//       p.SellPrice, 
+//       p.Discount, 
+//       c.CustomerNickname AS SellerNickname
+//     FROM 
+//       ShoppingCart sc
+//     JOIN 
+//       Products p ON sc.ProductID = p.ProductID
+//     JOIN 
+//       Customers c ON p.SellerID = c.CustomerID
+//     WHERE 
+//       sc.CustomerID = ?
+//     `,
+//     [userId],
+//     (error, results) => {
+//       if (error) {
+//         console.error("장바구니 조회 오류:", error);
+//         return res.status(500).json({ success: false, message: "장바구니를 불러오지 못했습니다." });
+//       }
+
+//       res.status(200).json({
+//         success: true,
+//         data: results,
+//       });
+//     }
+//   );
+// });
+
 router.get("/cart", checkLogin, (req, res) => {
   const userId = req.session.user.CustomerID;
 
@@ -146,6 +181,7 @@ router.get("/cart", checkLogin, (req, res) => {
         return res.status(500).json({ success: false, message: "장바구니를 불러오지 못했습니다." });
       }
 
+      console.log("장바구니 조회 결과:", results); // 디버깅 로그
       res.status(200).json({
         success: true,
         data: results,

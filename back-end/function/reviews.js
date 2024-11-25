@@ -64,62 +64,87 @@ router.post("/:productId", checkLogin, (req, res) => {
     return res.status(400).json({ success: false, message: "평점과 후기를 입력해주세요." });
   }
 
-  // 구매자가 거래한 기록 확인
+  // 이미 해당 상품에 대한 후기를 작성했는지 확인
   pool.query(
     `
-    SELECT * FROM OrderDetails
+    SELECT * FROM Reviews
     WHERE ProductID = ? AND CustomerID = ?
     `,
     [productId, userId],
-    (orderError, orderResults) => {
-      if (orderError) {
-        console.error("거래 기록 확인 오류:", orderError);
-        return res.status(500).json({ success: false, message: "거래 기록 확인 오류" });
+    (reviewError, reviewResults) => {
+      if (reviewError) {
+        console.error("후기 작성 확인 오류:", reviewError);
+        return res.status(500).json({ success: false, message: "후기 작성 확인 오류" });
       }
 
-      if (orderResults.length === 0) {
-        return res.status(403).json({ success: false, message: "거래한 기록이 없는 사용자입니다." });
+      if (reviewResults.length > 0) {
+        return res
+          .status(403)
+          .json({ success: false, message: "이미 해당 상품에 대한 후기를 작성하셨습니다." });
       }
 
-      // 거래 후기 작성
-      const reviewId = uuidv4().slice(0, 20); // 리뷰 ID 생성
+      // 구매자가 거래한 기록 확인
       pool.query(
         `
-        INSERT INTO Reviews (ReviewID, ProductID, CustomerID, Rating, Comments)
-        VALUES (?, ?, ?, ?, ?)
+        SELECT * FROM OrderDetails
+        WHERE ProductID = ? AND CustomerID = ?
         `,
-        [reviewId, productId, userId, rating, comments],
-        (insertError) => {
-          if (insertError) {
-            console.error("거래 후기 작성 오류:", insertError);
-            return res.status(500).json({ success: false, message: "거래 후기 작성 오류" });
+        [productId, userId],
+        (orderError, orderResults) => {
+          if (orderError) {
+            console.error("거래 기록 확인 오류:", orderError);
+            return res.status(500).json({ success: false, message: "거래 기록 확인 오류" });
           }
 
-          // 성공적으로 작성 후 최신 리뷰 반환
+          if (orderResults.length === 0) {
+            return res
+              .status(403)
+              .json({ success: false, message: "거래한 기록이 없는 사용자입니다." });
+          }
+
+          // 거래 후기 작성
+          const reviewId = uuidv4().slice(0, 20); // 리뷰 ID 생성
           pool.query(
             `
-            SELECT 
-              r.ReviewID,
-              r.ProductID,
-              r.CustomerID,
-              r.Rating,
-              r.Comments,
-              c.CustomerNickname
-            FROM 
-              Reviews r
-            JOIN 
-              Customers c ON r.CustomerID = c.CustomerID
-            WHERE 
-              r.ProductID = ?
+            INSERT INTO Reviews (ReviewID, ProductID, CustomerID, Rating, Comments)
+            VALUES (?, ?, ?, ?, ?)
             `,
-            [productId],
-            (fetchError, reviews) => {
-              if (fetchError) {
-                console.error("최신 거래 후기 조회 오류:", fetchError);
-                return res.status(500).json({ success: false, message: "최신 거래 후기 조회 오류" });
+            [reviewId, productId, userId, rating, comments],
+            (insertError) => {
+              if (insertError) {
+                console.error("거래 후기 작성 오류:", insertError);
+                return res.status(500).json({ success: false, message: "거래 후기 작성 오류" });
               }
 
-              res.status(201).json({ success: true, reviews });
+              // 성공적으로 작성 후 최신 리뷰 반환
+              pool.query(
+                `
+                SELECT 
+                  r.ReviewID,
+                  r.ProductID,
+                  r.CustomerID,
+                  r.Rating,
+                  r.Comments,
+                  c.CustomerNickname
+                FROM 
+                  Reviews r
+                JOIN 
+                  Customers c ON r.CustomerID = c.CustomerID
+                WHERE 
+                  r.ProductID = ?
+                `,
+                [productId],
+                (fetchError, reviews) => {
+                  if (fetchError) {
+                    console.error("최신 거래 후기 조회 오류:", fetchError);
+                    return res
+                      .status(500)
+                      .json({ success: false, message: "최신 거래 후기 조회 오류" });
+                  }
+
+                  res.status(201).json({ success: true, reviews });
+                }
+              );
             }
           );
         }

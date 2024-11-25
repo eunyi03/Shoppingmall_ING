@@ -374,13 +374,32 @@ function Mypage() {
     fetchUserTransactions();
   }, []);
 
-  // 장바구니 가져오기
+  // // 장바구니 가져오기
+  // useEffect(() => {
+  //   const fetchUserCart = async () => {
+  //     try {
+  //       const response = await axios.get("/mypage/cart");
+  //       if (response.data.success) {
+  //         setUserCart(response.data.data);
+  //       } else {
+  //         alert("장바구니를 불러오지 못했습니다.");
+  //       }
+  //     } catch (error) {
+  //       console.error("장바구니 조회 오류:", error);
+  //     }
+  //   };
+
+  //   fetchUserCart();
+  // }, []);
   useEffect(() => {
-    const fetchUserCart = async () => {
+    const fetchCart = async () => {
       try {
-        const response = await axios.get("/mypage/cart");
-        if (response.data.success) {
-          setUserCart(response.data.data);
+        const response = await fetch("/mypage/cart");
+        const data = await response.json();
+        console.log("장바구니 데이터:", data); // 디버깅 로그 추가
+  
+        if (data.success) {
+          setUserCart(data.data); // 장바구니 데이터를 상태로 설정
         } else {
           alert("장바구니를 불러오지 못했습니다.");
         }
@@ -388,8 +407,8 @@ function Mypage() {
         console.error("장바구니 조회 오류:", error);
       }
     };
-
-    fetchUserCart();
+  
+    fetchCart();
   }, []);
 
   // 로그아웃 처리

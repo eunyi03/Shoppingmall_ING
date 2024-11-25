@@ -211,9 +211,7 @@ router.get("/image/:productId", (req, res) => {
     });
   });
   
-  module.exports = router;
-
-// 장바구니에 추가
+//장바구니에 추가
 router.post("/cart", checkLogin, (req, res) => {
   const { productId } = req.body;
   const customerId = req.session.user.CustomerID;
@@ -233,3 +231,5 @@ router.post("/cart", checkLogin, (req, res) => {
       res.json({ message: "장바구니에 성공적으로 추가되었습니다." });
   });
 });
+
+module.exports = router;
