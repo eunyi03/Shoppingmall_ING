@@ -119,6 +119,7 @@ const productsRoutes = require('./function/products');
 
 const mypageRoutes = require('./function/mypage');
 const ordersRoutes = require('./function/orders');
+const reviewsRoutes = require('./function/reviews');
 
 // const communityRoutes = require('./function/community');
 // const chatsRoutes = require('./function/chats');
@@ -134,6 +135,7 @@ app.use('/', processRoutes);
 app.use("/products", productsRoutes);
 app.use('/mypage', mypageRoutes);
 app.use('/', ordersRoutes);
+app.use('/reviews', reviewsRoutes);
 
 // app.use('/', communityRoutes);
 // app.use('/', chatsRoutes);
