@@ -1,3 +1,69 @@
+/* .deal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.deal-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.top-buttons,
+.bottom-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button,
+.purchase-button,
+.cart-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.purchase-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cart-button {
+  background-color: #ffc107;
+  width: 110px;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.disabled-button {
+  background-color: #ccc;
+  color: #777;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  width: 100%;
+  text-align: center;
+} */
+
 .deal-container {
   max-width: 800px;
   margin: 0 auto;
@@ -62,4 +128,67 @@
   cursor: not-allowed;
   width: 100%;
   text-align: center;
+}
+
+/* 추가된 거래 후기 스타일 */
+.reviews-section {
+  margin-top: 30px;
+}
+
+.reviews-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.reviews-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.reviews-list li {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.no-reviews-text {
+  margin-top: 10px;
+  color: #888;
+  font-style: italic;
+}
+
+/* 거래 후기 작성 폼 */
+.review-input {
+  margin-top: 20px;
+}
+
+.review-input textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.review-input select {
+  width: 100px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.review-input button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
 }
