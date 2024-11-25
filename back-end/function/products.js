@@ -212,3 +212,5 @@ router.get("/image/:productId", (req, res) => {
   });
   
   module.exports = router;
+
+  
