@@ -7,7 +7,7 @@ const db_config = require("../config/db_config.json");
 const router = express.Router();
 
 const pool = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit: 10, 
   host: db_config.host,
   user: db_config.user,
   password: db_config.password,
