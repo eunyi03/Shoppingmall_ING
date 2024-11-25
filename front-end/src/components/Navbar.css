@@ -1,0 +1,55 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+/* 전체 네비게이션 스타일 */
+.navbar_all {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 999;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 네비게이션 리스트 스타일 */
+.navbar_list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+/* 각 항목 스타일 */
+.navbar_item {
+  display: inline-block;
+}
+
+/* 링크 스타일 */
+.navbar_link {
+  color: #ff6f61;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 1.0em;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, text-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+/* 링크 호버 스타일 */
+.navbar_link:hover {
+  text-shadow: 0 0 5px rgba(180, 182, 186, 0.8);
+  background-color: rgba(237, 237, 237, 0.8);
+}

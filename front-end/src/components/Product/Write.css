@@ -1,0 +1,42 @@
+/* // Write.css */
+.write-container, .write-container form, .write-container input, .write-container textarea, .write-container select, .write-container button, .write-container button:hover {
+    font-family: 'Noto Sans Korean', sans-serif;
+  }
+  
+  .write-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .write-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .write-container input,
+  .write-container textarea,
+  .write-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .write-container button {
+    background-color: #ff6f61;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .write-container button:hover {
+    background-color: #e65c50;
+  }

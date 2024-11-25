@@ -1,0 +1,7 @@
+{
+    "host": "34.30.215.169",
+    "user": "root",
+    "database": "shop",
+    "password": "shop1234",
+    "port": "3306"
+}
