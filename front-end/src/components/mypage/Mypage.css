@@ -1,0 +1,102 @@
+/* 마이페이지 */
+/* 전체 마이페이지 컨테이너 스타일 */
+.mypage-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* 헤더 스타일 */
+  .mypage-container h2 {
+    text-align: center;
+    color: #ff6f61;
+    margin-bottom: 20px;
+  }
+  
+  /* 각 섹션 컨테이너 스타일 */
+  .mypage-section {
+    margin-bottom: 30px;
+  }
+  
+  /* 섹션 헤더 스타일 */
+  .mypage-section h3 {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ff6f61;
+    padding-bottom: 5px;
+  }
+  
+  /* 섹션 내 텍스트 스타일 */
+  .mypage-section p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* 내가 작성한 글 목록 스타일 */
+  .mypage-posts ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .mypage-posts li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .mypage-posts li:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 내가 거래한 글 목록 스타일 */
+  .mypage-transactions ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .mypage-transactions li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .mypage-transactions li:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 버튼 컨테이너 스타일 */
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* 버튼 기본 스타일 */
+  .button-container button {
+    background-color: #ff6f61;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  
+  /* 버튼 호버 스타일 */
+  .button-container button:hover {
+    background-color: #e65c50;
+  }
