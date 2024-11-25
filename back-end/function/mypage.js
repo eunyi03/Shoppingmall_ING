@@ -15,6 +15,9 @@ const pool = mysql.createPool({
   port: db_config.port,
 });
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage, limits: { fileSize: 20 * 1024 * 1024 } });
+
 // 세션 사용자 확인
 const checkLogin = (req, res, next) => {
   console.log("세션 상태:", req.session); // 디버깅 로그
@@ -26,7 +29,7 @@ const checkLogin = (req, res, next) => {
 };
 
 // 회원 정보 조회
-router.get("/mypage/info", checkLogin, (req, res) => {
+router.get("/info", checkLogin, (req, res) => {
   const userId = req.session.user.CustomerID;
 
   console.log("회원 정보 요청:", userId); // 디버깅 로그
@@ -48,7 +51,7 @@ router.get("/mypage/info", checkLogin, (req, res) => {
 });
 
 // 내가 작성한 글
-router.get("/mypage/posts", checkLogin, (req, res) => {
+router.get("/posts", checkLogin, (req, res) => {
   const userId = req.session.user.CustomerID;
 
   console.log("작성 글 요청:", userId); // 디버깅 로그
@@ -67,7 +70,7 @@ router.get("/mypage/posts", checkLogin, (req, res) => {
 });
 
 // 내가 거래한 글
-router.get("/mypage/transactions", checkLogin, (req, res) => {
+router.get("/transactions", checkLogin, (req, res) => {
   const userId = req.session.user.CustomerID;
 
   console.log("거래한 글 요청:", userId); // 디버깅 로그
