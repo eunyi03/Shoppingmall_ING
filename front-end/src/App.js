@@ -21,6 +21,7 @@ function App() {
           <Route path="/" element={<Deal />} />
           {/* <Route path="/productread" element={<DealRead />} /> */}
           <Route path="/products/detail/:productId" element={<DealRead />} />
+          <Route path="/reviews/:productId" element={<DealRead />} />
           <Route path="/signup" element={<Signuppage />} />
           <Route path="/login" element={<Loginpage />} />
           <Route path="/write" element={<Write />} />
