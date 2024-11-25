@@ -75,20 +75,45 @@ router.get("/transactions", checkLogin, (req, res) => {
 
   console.log("거래한 글 요청:", userId); // 디버깅 로그
 
+  // 거래 내역 조회 쿼리
   pool.query(
-    `SELECT t.ProductID, p.ProductName, p.SellPrice, t.OrderDate, t.SellerID 
-     FROM Transactions t 
-     JOIN Products p ON t.ProductID = p.ProductID 
-     WHERE t.BuyerID = ?`,
+    `
+    SELECT 
+      od.ProductID, 
+      p.ProductName, 
+      od.SellPrice, 
+      o.OrderDate, 
+      od.SellerID, 
+      s.CustomerNickname AS SellerNickname
+    FROM 
+      OrderDetails od
+    JOIN 
+      Orders o ON od.OrderID = o.OrderID
+    JOIN 
+      Products p ON od.ProductID = p.ProductID
+    JOIN 
+      Customers s ON od.SellerID = s.CustomerID
+    WHERE 
+      od.CustomerID = ?
+    ORDER BY 
+      o.OrderDate DESC
+    `,
     [userId],
     (error, results) => {
       if (error) {
         console.error("거래 목록 조회 오류:", error);
         return res.status(500).json({ error: "거래 목록 조회 오류" });
       }
-      res.json({ success: true, data: results });
+
+      if (results.length === 0) {
+        console.warn("거래 내역이 없습니다.");
+        return res.status(404).json({ success: false, message: "거래 내역이 없습니다." });
+      }
+
+      res.status(200).json({ success: true, data: results });
     }
   );
 });
+
 
 module.exports = router;
