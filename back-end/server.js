@@ -116,6 +116,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 const loginRoutes = require('./function/login');
 const processRoutes = require('./function/process');
 const productsRoutes = require('./function/products');
+
+const mypageRoutes = require('./function/mypage');
+
 // const communityRoutes = require('./function/community');
 // const chatsRoutes = require('./function/chats');
 // const commentsRoutes = require('./function/comments');
@@ -128,6 +131,7 @@ app.use('/', loginRoutes);
 app.use('/', processRoutes);
 // app.use('/', productsRoutes)
 app.use("/products", productsRoutes);
+app.use('/mypage', mypageRoutes);
 
 // app.use('/', communityRoutes);
 // app.use('/', chatsRoutes);
