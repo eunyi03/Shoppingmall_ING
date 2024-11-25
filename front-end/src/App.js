@@ -10,6 +10,7 @@ import Write from './components/Product/Write.js';
 import DealRead from './components/Product/DealRead.js';  // ProductRead 컴포넌트를 임포트합니다.
 import DealEdit from './components/Product/DealEdit.js';  // ProductEdit 컴포넌트를 임포트합니다.
 import Mypage from './components/mypage/Mypage.js';
+import Order from './components/Product/Order.js';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/update/:productId" element={<DealEdit />} />
           <Route path="/products/process/delete/:productId" element={<DealEdit />} />
           <Route path="/mypage" element={<Mypage />} />
+          <Route path="/products/purchase/:productId" element={<Order />} />
         </Routes>
       </div>
     </BrowserRouter>
