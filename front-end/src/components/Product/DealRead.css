@@ -1,56 +1,10 @@
-/* 상단 버튼 스타일 */
-.top-buttons {
-  display: flex;
-  justify-content: flex-end; /* 오른쪽 정렬 */
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.edit-button,
-.delete-button {
-  padding: 8px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.edit-button {
-  background-color: #4caf50;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.edit-button:hover {
-  background-color: #45a049;
-}
-
-.delete-button {
-  background-color: #f44336;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.delete-button:hover {
-  background-color: #e53935;
-}
-
-/* 기존 상세보기 스타일 */
 .deal-container {
-  width: 80%;
   max-width: 800px;
-  margin: 50px auto;
-  background-color: #ffffff;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Noto Sans Korean', sans-serif;
-}
-
-.deal-details {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .deal-image {
@@ -61,55 +15,51 @@
   margin-bottom: 20px;
 }
 
-.deal-info h2 {
-  font-size: 24px;
-  color: #333;
-}
-
-.deal-info p {
-  font-size: 16px;
-  color: #777;
-  margin: 5px 0;
-}
-
-.deal-description {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-}
-
-/* 하단 버튼 스타일 */
+.top-buttons,
 .bottom-buttons {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
+.edit-button,
+.delete-button,
 .purchase-button,
 .cart-button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .purchase-button {
-  background-color: #ff6f61;
+  background-color: #4caf50;
   color: white;
-}
-
-.purchase-button:hover {
-  background-color: #d13830;
 }
 
 .cart-button {
-  background-color: #ff9800;
+  background-color: #ffc107;
+  width: 110px;
   color: white;
 }
 
-.cart-button:hover {
-  background-color: #e68a00;
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.disabled-button {
+  background-color: #ccc;
+  color: #777;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  width: 100%;
+  text-align: center;
 }
