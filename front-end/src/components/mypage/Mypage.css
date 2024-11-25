@@ -100,3 +100,24 @@
   .button-container button:hover {
     background-color: #e65c50;
   }
+
+  .mypage-logout {
+    display: flex;
+    justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+    margin-bottom: 20px; /* 버튼과 아래 콘텐츠 간격 조정 */
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .logout-button:hover {
+    background-color: #e60000;
+  }
+  

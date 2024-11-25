@@ -1,5 +1,5 @@
-// 마이페이지 js
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // navigate 사용
 import axios from "axios";
 import "./Mypage.css";
 
@@ -7,6 +7,7 @@ function Mypage() {
   const [userInfo, setUserInfo] = useState({});
   const [userPosts, setUserPosts] = useState([]);
   const [userTransactions, setUserTransactions] = useState([]);
+  const navigate = useNavigate(); // 페이지 이동용 navigate
 
   // 회원 정보 가져오기
   useEffect(() => {
@@ -62,9 +63,32 @@ function Mypage() {
     fetchUserTransactions();
   }, []);
 
+  // 로그아웃 처리
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("/process/logout");
+      if (response.data.success) {
+        alert("로그아웃 성공");
+        navigate("/login"); // 로그인 페이지로 이동
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error("로그아웃 오류:", error);
+      alert("로그아웃 중 오류가 발생했습니다.");
+    }
+  };
+
   return (
     <div className="mypage-container">
       <h2>마이페이지</h2>
+
+      {/* 로그아웃 버튼 */}
+      <div className="mypage-logout">
+        <button onClick={handleLogout} className="logout-button">
+          로그아웃
+        </button>
+      </div>
 
       {/* 회원 정보 */}
       <div className="mypage-section">
