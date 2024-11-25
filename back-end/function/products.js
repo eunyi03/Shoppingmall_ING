@@ -213,4 +213,23 @@ router.get("/image/:productId", (req, res) => {
   
   module.exports = router;
 
-  
+// 장바구니에 추가
+router.post("/cart", checkLogin, (req, res) => {
+  const { productId } = req.body;
+  const customerId = req.session.user.CustomerID;
+  const recordId = `cart_${Date.now()}`; // Unique RecordID
+
+  const query = `
+      INSERT INTO ShoppingCart (RecordID, CustomerID, ProductID)
+      VALUES (?, ?, ?)
+      ON DUPLICATE KEY UPDATE RecordID = RecordID; -- Avoid duplication
+  `;
+
+  pool.query(query, [recordId, customerId, productId], (error, results) => {
+      if (error) {
+          console.error("장바구니 추가 오류:", error);
+          return res.status(500).json({ error: "장바구니 추가 오류" });
+      }
+      res.json({ message: "장바구니에 성공적으로 추가되었습니다." });
+  });
+});

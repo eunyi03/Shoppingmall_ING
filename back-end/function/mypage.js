@@ -116,7 +116,7 @@ router.get("/transactions", checkLogin, (req, res) => {
 });
 
 
-module.exports = router;
+
 
 // 장바구니 조회 API
 router.get("/cart", checkLogin, (req, res) => {
@@ -153,3 +153,6 @@ router.get("/cart", checkLogin, (req, res) => {
     }
   );
 });
+
+
+module.exports = router;
