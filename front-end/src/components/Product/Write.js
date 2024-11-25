@@ -6,8 +6,8 @@ function Write() {
   const [formData, setFormData] = useState({
     CategoryID: "",
     ProductName: "",
-    OriginPrice: 0,
-    SellPrice: 0,
+    OriginPrice: "",
+    SellPrice: "",
     ProductImage: null,
     Description: "",
     Status: "거래중",

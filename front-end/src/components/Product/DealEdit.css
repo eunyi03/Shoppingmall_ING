@@ -1,99 +1,103 @@
-  .edit-container {
-    width: 80%;
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Noto Sans Korean', sans-serif;
-  }
-  
-  .edit-container h2 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .edit-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .edit-container select,
-  .edit-container input,
-  .edit-container textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    font-family: 'Noto Sans Korean', sans-serif;
-  }
-  
-  .edit-container select:focus,
-  .edit-container input:focus,
-  .edit-container textarea:focus {
-    border-color: #ff6f61;
-    outline: none;
-  }
-  
-  .edit-container button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Noto Sans Korean', sans-serif;
-  }
-  
-  .edit-container .submit-button {
-    background-color: #ff6f61;
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-  }
-  
-  .edit-container .submit-button:hover {
-    background-color: #ff4b41;
-  }
-  
-  .edit-container .delete-button {
-    background-color: #ff4b41;
-    color: #ffffff;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .edit-container .delete-button:hover {
-    background-color: #d13830;
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  .file-upload {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .file-upload input[type="file"] {
-    padding: 5px;
-    font-size: 14px;
-  }
-  
-  .file-upload span {
-    color: #777;
-    font-size: 14px;
-  }
-  
-  .edit-container .action-buttons {
-    display: flex;
-    justify-content: center; /* 버튼을 중앙 정렬 */
-    gap: 20px; /* 버튼 간격 추가 */
-    margin-top: 20px; /* 상단 여백 추가 */
-  }
+.edit-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Noto Sans Korean', sans-serif;
+}
+
+.edit-container h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.edit-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.edit-container select,
+.edit-container input,
+.edit-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Noto Sans Korean', sans-serif;
+}
+
+.edit-container select:focus,
+.edit-container input:focus,
+.edit-container textarea:focus {
+  border-color: #ff6f61;
+  outline: none;
+}
+
+.edit-container button {
+  width: 120px; /* 버튼의 고정 너비 설정 */
+  height: 40px; /* 버튼의 고정 높이 설정 */
+  padding: 10px; /* 내부 여백 설정 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Noto Sans Korean', sans-serif;
+  display: flex;
+  justify-content: center; /* 텍스트 중앙 정렬 */
+  align-items: center;
+}
+
+.edit-container .submit-button {
+  background-color: #4caf50;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.edit-container .submit-button:hover {
+  background-color: #4caf50;
+}
+
+.edit-container .delete-button {
+  background-color: #ff4b41;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.edit-container .delete-button:hover {
+  background-color: #d13830;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-upload input[type="file"] {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.file-upload span {
+  color: #777;
+  font-size: 14px;
+}
+
+.edit-container .action-buttons {
+  display: flex;
+  justify-content: center; /* 버튼을 중앙 정렬 */
+  gap: 20px; /* 버튼 간격 추가 */
+  margin-top: 20px; /* 상단 여백 추가 */
+}

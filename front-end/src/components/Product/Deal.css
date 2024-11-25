@@ -1,4 +1,4 @@
-   .deal-container, .add-product-button, .deal-list, .no-items, .deal-item , .deal-image , .deal-info, .deal-info h3, .deal-info p, .deal-date, .category-filter {
+   /* .deal-container, .add-product-button, .deal-list, .no-items, .deal-item , .deal-image , .deal-info, .deal-info h3, .deal-info p, .deal-date, .category-filter {
     font-family: 'Noto Sans Korean', sans-serif;
   }
   
@@ -85,4 +85,229 @@
     font-weight: bold;
     font-size: 12px;
   }
-  
+
+   .deal-container, .add-product-button, .deal-list, .no-items, .deal-item , .deal-image , .deal-info, .deal-info h3, .deal-info p, .deal-date, .category-filter {
+    font-family: 'Noto Sans Korean', sans-serif;
+}
+
+.deal-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-filter {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-product-button {
+    background-color: #ff6f61;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.deal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.no-items {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+}
+
+.deal-item {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: auto;
+  max-width: 200px;,
+  max-height: 200px;
+  }
+
+.deal-image {
+  width: 120px; 
+  height: 120px;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+
+.deal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 10px; 
+}
+
+
+.deal-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.deal-info p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.deal-date {
+    color: #777;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: right; 
+
+*/
+
+/* Deal.css */
+
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.deal-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #ff6f61;
+  margin-bottom: 20px;
+}
+
+/* Top Controls */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.category-filter {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.category-filter:hover {
+  border-color: #ff6f61;
+}
+
+.add-product-button {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-product-button:hover {
+  background-color: #e65b54;
+}
+
+/* Deal List */
+.deal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.no-items {
+  color: #888;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Deal Item */
+.deal-item {
+  width: calc(33% - 20px);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.deal-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.deal-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.deal-info {
+  padding: 15px;
+}
+
+.deal-info h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.deal-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.deal-info .deal-date {
+  font-size: 12px;
+  color: #999;
+}
