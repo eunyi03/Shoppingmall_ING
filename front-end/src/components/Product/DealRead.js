@@ -394,6 +394,28 @@ function DealRead() {
     // 장바구니에 추가되었습니다 메시지 후 마이페이지로 이동
     alert("장바구니에 추가되었습니다.");
     navigate("/mypage");
+
+    fetch(`/products/cart`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ productId }),
+  })
+      .then((response) => {
+          if (response.ok) {
+              alert("장바구니에 추가되었습니다.");
+              navigate("/mypage"); // Navigate to user's cart or profile page
+          } else {
+              return response.json().then((error) => {
+                  throw new Error(error.message || "장바구니 추가에 실패했습니다.");
+              });
+          }
+      })
+      .catch((error) => {
+          console.error("장바구니 추가 중 오류 발생:", error);
+          alert(error.message || "서버 오류가 발생했습니다. 다시 시도해주세요.");
+      });
   };
 
   const handleSubmitReview = async () => {
