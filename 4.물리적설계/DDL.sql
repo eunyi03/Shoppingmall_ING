@@ -30,8 +30,7 @@ CREATE TABLE 'OrderDetails' (
   KEY 'fk_CustomerID_OrderDetails' ('CustomerID'),
   CONSTRAINT 'fk_CustomerID_OrderDetails' FOREIGN KEY ('CustomerID') 
   REFERENCES 'Customers' ('CustomerID') ON DELETE CASCADE,
-  CONSTRAINT 'fk_OrderID_Details' FOREIGN KEY ('OrderID') 
-  REFERENCES 'Orders' ('OrderID') ON DELETE CASCADE,
+  CONSTRAINT 'fk_OrderID_Details' FOREIGN KEY ('OrderID')  REFERENCES 'Orders' ('OrderID') ON DELETE CASCADE,
   CONSTRAINT 'fk_ProductID_Details' FOREIGN KEY ('ProductID') 
   REFERENCES 'Products' ('ProductID') ON DELETE CASCADE
 );
@@ -51,7 +50,7 @@ CREATE TABLE 'Orders' (
 CREATE TABLE `Products` (
   `ProductID` varchar(20) NOT NULL,
   `SellerID` varchar(20) NOT NULL,
-  `CategoryID` varchar(5) NOT NULL DEFAULT 'C4',
+  `CategoryID` varchar(5) NOT NULL DEFAULT '기타',
   `ProductName` varchar(100) NOT NULL,
   `OriginPrice` int NOT NULL,
   `Discount` decimal(5,2) DEFAULT NULL,
@@ -63,7 +62,7 @@ CREATE TABLE `Products` (
   PRIMARY KEY (`ProductID`),
   KEY `fk_CategoryID` (`CategoryID`),
   CONSTRAINT `fk_CategoryID` FOREIGN KEY (`CategoryID`) REFERENCES `Categories` (`CategoryID`),
-  CONSTRAINT `Category_type` CHECK ((`CategoryID` in (_utf8mb4'기타',_utf8mb4'도서',_utf8mb4'악세서리',_utf8mb4'의류')))
+  CONSTRAINT 'Category_type' CHECK (('CategoryID' in (_utf8mb4'기타',_utf8mb4'도서',_utf8mb4'악세서리',_utf8mb4'의류')))
 );
 
 CREATE TABLE `Reviews` (
@@ -72,21 +71,24 @@ CREATE TABLE `Reviews` (
   `CustomerID` varchar(20) NOT NULL,
   `Rating` int DEFAULT NULL,
   `Comments` text NOT NULL,
-  PRIMARY KEY (`ReviewID`,`ProductID`),
+  PRIMARY KEY ('ReviewID','ProductID'),
   KEY `fk_ProductID` (`ProductID`),
   KEY `fk_CustomerID` (`CustomerID`),
   CONSTRAINT `fk_CustomerID` FOREIGN KEY (`CustomerID`) REFERENCES `Customers` (`CustomerID`) ON DELETE CASCADE,
   CONSTRAINT `fk_ProductID` FOREIGN KEY (`ProductID`) REFERENCES `Products` (`ProductID`) ON DELETE CASCADE,
-  CONSTRAINT `Reviews_chk_1` CHECK ((`Rating` between 1 and 5))
+  CONSTRAINT 'Reviews_chk_1' CHECK (('Rating' between 1 and 5))
 );
 
-CREATE TABLE `ShoppingCart` (
-  `RecordID` varchar(20) NOT NULL,
-  `CustomerID` varchar(20) NOT NULL,
-  `ProductID` varchar(20) NOT NULL,
-  PRIMARY KEY (`RecordID`),
-  KEY `fk_CustomerID_Shop` (`CustomerID`),
-  KEY `fk_ProductID_Shop` (`ProductID`),
-  CONSTRAINT `fk_CustomerID_Shop` FOREIGN KEY (`CustomerID`) REFERENCES `Customers` (`CustomerID`) ON DELETE CASCADE,
-  CONSTRAINT `fk_ProductID_Shop` FOREIGN KEY (`ProductID`) REFERENCES `Products` (`ProductID`) ON DELETE CASCADE
+CREATE TABLE 'ShoppingCart' (
+  'RecordID' varchar(20) NOT NULL,
+  'CustomerID' varchar(20) NOT NULL,
+  'ProductID' varchar(20) NOT NULL,
+  PRIMARY KEY ('RecordID'),
+  KEY 'fk_CustomerID_Shop' ('CustomerID'),
+  KEY 'fk_ProductID_Shop' ('ProductID'),
+  CONSTRAINT 'fk_CustomerID_Shop' FOREIGN KEY ('CustomerID') 
+  REFERENCES 'Customers' ('CustomerID') ON DELETE CASCADE,
+  CONSTRAINT 'fk_ProductID_Shop' FOREIGN KEY ('ProductID') 
+  REFERENCES 'Products' ('ProductID') ON DELETE CASCADE
 );
+
