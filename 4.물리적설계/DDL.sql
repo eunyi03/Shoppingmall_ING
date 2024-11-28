@@ -19,29 +19,33 @@ CREATE TABLE `Customers` (
   UNIQUE KEY `Phone` (`Phone`)
 );
 
-CREATE TABLE `OrderDetails` (
-  `OrderID` varchar(20) NOT NULL,
-  `ProductID` varchar(20) NOT NULL,
-  `SellerID` varchar(20) NOT NULL,
-  `CustomerID` varchar(20) NOT NULL,
-  `SellPrice` int NOT NULL,
-  PRIMARY KEY (`OrderID`,`ProductID`),
-  KEY `fk_ProductID_Details` (`ProductID`),
-  KEY `fk_CustomerID_OrderDetails` (`CustomerID`),
-  CONSTRAINT `fk_CustomerID_OrderDetails` FOREIGN KEY (`CustomerID`) REFERENCES `Customers` (`CustomerID`) ON DELETE CASCADE,
-  CONSTRAINT `fk_OrderID_Details` FOREIGN KEY (`OrderID`) REFERENCES `Orders` (`OrderID`) ON DELETE CASCADE,
-  CONSTRAINT `fk_ProductID_Details` FOREIGN KEY (`ProductID`) REFERENCES `Products` (`ProductID`) ON DELETE CASCADE
+CREATE TABLE 'OrderDetails' (
+  'OrderID' varchar(20) NOT NULL,
+  'ProductID' varchar(20) NOT NULL,
+  'SellerID' varchar(20) NOT NULL,
+  'CustomerID' varchar(20) NOT NULL,
+  'SellPrice' int NOT NULL,
+  PRIMARY KEY ('OrderID','ProductID'),
+  KEY 'fk_ProductID_Details' ('ProductID'),
+  KEY 'fk_CustomerID_OrderDetails' ('CustomerID'),
+  CONSTRAINT 'fk_CustomerID_OrderDetails' FOREIGN KEY ('CustomerID') 
+  REFERENCES 'Customers' ('CustomerID') ON DELETE CASCADE,
+  CONSTRAINT 'fk_OrderID_Details' FOREIGN KEY ('OrderID') 
+  REFERENCES 'Orders' ('OrderID') ON DELETE CASCADE,
+  CONSTRAINT 'fk_ProductID_Details' FOREIGN KEY ('ProductID') 
+  REFERENCES 'Products' ('ProductID') ON DELETE CASCADE
 );
 
-CREATE TABLE `Orders` (
-  `OrderID` varchar(20) NOT NULL,
-  `CustomerID` varchar(20) NOT NULL,
-  `OrderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `TotalPrice` int NOT NULL,
-  `ShippingFee` int NOT NULL DEFAULT '3000',
-  PRIMARY KEY (`OrderID`),
-  KEY `fk_CustomerID_Order` (`CustomerID`),
-  CONSTRAINT `fk_CustomerID_Order` FOREIGN KEY (`CustomerID`) REFERENCES `Customers` (`CustomerID`) ON DELETE CASCADE
+CREATE TABLE 'Orders' (
+  'OrderID' varchar(20) NOT NULL,
+  'CustomerID' varchar(20) NOT NULL,
+  'OrderDate' timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  'TotalPrice' int NOT NULL,
+  'ShippingFee' int NOT NULL DEFAULT '3000',
+  PRIMARY KEY ('OrderID'),
+  KEY 'fk_CustomerID_Order' ('CustomerID'),
+  CONSTRAINT 'fk_CustomerID_Order' FOREIGN KEY ('CustomerID') 
+  REFERENCES 'Customers' ('CustomerID') ON DELETE CASCADE
 );
 
 CREATE TABLE `Products` (
