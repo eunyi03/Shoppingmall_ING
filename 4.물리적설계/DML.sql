@@ -171,3 +171,38 @@ SELECT
         r.ProductID = ?
 
 
+-- 구매자 뷰 (거래하기가 완료된 구매자 관점에서 필요한 데이터)
+SELECT 
+    s.CustomerNickname AS SellerNickname, -- 판매자 닉네임
+    s.Account AS SellerAccount,          -- 판매자 계좌
+    p.ProductName,                       -- 물품명
+    o.TotalPrice                         -- 총 가격
+FROM 
+    Orders o
+JOIN 
+    OrderDetails od ON o.OrderID = od.OrderID
+JOIN 
+    Products p ON od.ProductID = p.ProductID
+JOIN 
+    Customers s ON p.SellerID = s.CustomerID
+WHERE 
+    o.CustomerID = ?; -- 구매자 ID를 조건으로 설정
+
+-- 판매자 뷰 (거래하기가 완료된 판매자 관점에서 필요한 데이터)
+SELECT 
+    b.CustomerNickname AS BuyerNickname, -- 구매자 닉네임
+    b.Address AS BuyerAddress,           -- 구매자 주소
+    b.AddressDetail AS BuyerAddressDetail, -- 구매자 상세주소
+    b.Zip AS BuyerZip,                   -- 구매자 우편번호
+    p.ProductName,                       -- 물품명
+    o.TotalPrice                         -- 총 가격
+FROM 
+    Orders o
+JOIN 
+    OrderDetails od ON o.OrderID = od.OrderID
+JOIN 
+    Products p ON od.ProductID = p.ProductID
+JOIN 
+    Customers b ON o.CustomerID = b.CustomerID
+WHERE 
+    p.SellerID = ?; -- 판매자 ID를 조건으로 설정
