@@ -1,11 +1,10 @@
 <p align="center">
-  <img src="front-end/image/logo.png" alt="중거쇼 로고" width="200"/>
+  <img src="front-end/image/logo.png" alt="중거쇼 로고" width="400"/>
 </p>
-<h1 align="center"> 중고 거래 쇼핑몰 플랫폼: 중거쇼</h1>
 
 <div align="center">
   <span>동국대학교 구성원을 위한 신뢰도 높은 중고 거래 플랫폼</span>
-  <img src="front-end/image/image.png" alt="신뢰도 이미지" width="100" style="vertical-align:middle; margin-left: 10px;"/>
+  <img src="front-end/image/image.png" alt="신뢰도 이미지" width="80" style="vertical-align:middle; margin-left: 10px;"/>
 </div>
 
 ---
@@ -22,8 +21,8 @@
 
 ## 📌 주요 기능
 
-- **회원가입**: 회원 테이블 속성 사용해 사용자의 상세정보 입력받아 계정 생성. 학번으로 가입한 회원ID가 기본키
-- **로그인**: 회원 테이블의 회원ID와 비밀번호로 로그인 인증 성공 시 거래 내역, 장바구니 등 개인화된 서비스 제공
+- **회원가입**: 회원 테이블 속성 사용해 사용자의 상세정보 입력받아 계정 생성. 학번으로 가입한 회원ID가 기본키.
+- **로그인**: 회원 테이블의 회원ID와 비밀번호로 로그인 인증 성공 시 거래 내역, 장바구니 등 개인화된 서비스 제공.
 - **중고 거래 물품 관리**: 상품 테이블에 상품 정보 저장. 수정과 삭제는 판매자ID 기반으로 권한 부여. 상품과 회원 테이블 조인하여 상품정보와 판매자 정보 같이 조회 가능.
 - **장바구니 기능**: 장바구니 테이블에 회원ID와 상품ID가 저장되어 동일 상품 중복 삽입 방지.
 - **거래**: 주문과 주문 상세 테이블 연계해 주문 데이터 체계적 관리. 거래 완료시, "거래완료"로 거래 상태 업데이트.
