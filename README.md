@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/Users/eunyi/Documents/3-2/DB/Dongguk_Shoppingmall-main 복사본/front-end/image/image.png" alt="중거쇼 로고" width="200"/>
+  <img src="/front-end/image/image.png" alt="중거쇼 로고" width="200"/>
 </p>
 
 <h1 align="center"> 중고 거래 쇼핑몰 플랫폼: 중거쇼</h1>
@@ -29,11 +29,9 @@
 - **거래 후기**: 거래 완료 후 구매자만 후기 작성 및 평점 기능
 
 ### ER 다이어그램
-![ER 다이어그램]("/Users/eunyi/Documents/3-2/DB/Dongguk_Shoppingmall-main 복사본/2.개념적설계/ER다이어그램.png")
+![ER 다이어그램]("/2.개념적설계/ER다이어그램.png")
 
-#### 기술 스택
 
-```markdown
 ## 💻 기술 스택
 
 - **Backend**: Node.js
