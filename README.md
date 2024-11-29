@@ -2,9 +2,9 @@
   <img src="front-end/image/logo.png" alt="중거쇼 로고" width="400"/>
 </p>
 
-<div align="center">
-  <span>동국대학교 구성원을 위한 신뢰도 높은 중고 거래 플랫폼</span>
-  <img src="front-end/image/image.png" alt="신뢰도 이미지" width="80" style="vertical-align:middle; margin-left: 10px;"/>
+<div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+  <strong>동국대학교 구성원을 위한 신뢰도 높은 중고 거래 플랫폼</strong>
+  <img src="front-end/image/image.png" alt="신뢰도 이미지" width="40" style="vertical-align:middle;"/>
 </div>
 
 ---
