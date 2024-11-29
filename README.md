@@ -3,8 +3,8 @@
 </p>
 
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-  <strong>동국대학교 구성원을 위한 신뢰도 높은 중고 거래 플랫폼</strong>
-  <img src="front-end/image/image.png" alt="신뢰도 이미지" width="40" style="vertical-align:middle;"/>
+  <strong style="font-size: 18px;">동국대학교 구성원을 위한 신뢰도 높은 중고 거래 플랫폼</strong>
+  <img src="front-end/image/image.png" alt="신뢰도 이미지" width="35" style="vertical-align:middle;"/>
 </div>
 
 ---
